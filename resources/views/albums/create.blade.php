@@ -19,12 +19,20 @@
 
 			<div class="form-group">
 				<label for="artist_id">Artist</label>
-				<textarea name="artist_id" id="artist_id" class="form-control"></textarea>
+				<select name="artist_id" id="artist_id" class="form-control">
+					@foreach ($artists as $artist)
+						<option value="{{$artist->id}}">{{$artist->name}}</option>
+					@endforeach
+				</select>
 			</div>
 
 			<div class="form-group">
 				<label for="format_id">Format</label>
-				<textarea name="format_id" id="format_id" class="form-control"></textarea>
+				<select name="format_id" id="format_id" class="form-control">
+					@foreach ($formats as $format)
+						<option value="{{$format->id}}">{{$format->format}}</option>
+					@endforeach
+				</select>
 			</div>
 
 			<div class="form-group">

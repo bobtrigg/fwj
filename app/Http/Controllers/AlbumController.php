@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\Artist;
+use App\Format;
 
 class AlbumController extends Controller
 {
@@ -13,7 +15,9 @@ class AlbumController extends Controller
     }
 
     public function create() {
-    	return view('albums.create');
+    	$artists = Artist::all();
+    	$formats = Format::all();
+    	return view('albums.create', compact('artists', 'formats'));
     }
 
     public function store() {
