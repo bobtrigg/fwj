@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+    <div class="container">
+        <h2>Artists</h2>
+    </div>
 	<div class="container">
     	<ul>
     	    @foreach($artists as $artist)

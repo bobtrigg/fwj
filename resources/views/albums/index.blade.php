@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+    <div class="container">
+        <h2>Albums</h2>
+    </div>
 	<div class="container table-responsive">
         <table class="table table-bordered">
             <thead>

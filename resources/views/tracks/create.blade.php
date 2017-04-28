@@ -4,7 +4,7 @@
 
 	<div class="col-sm-8">
 		
-		<h1>Add a track</h1>
+		<h2>Add a track</h2>
 
 		<hr>
 

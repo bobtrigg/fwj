@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-    
+    <div class="container">
+        <h2>Seasons</h2>
+    </div>
     <div class="container">
         <ul>
             @foreach($seasons as $season)
