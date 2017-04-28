@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-
+	<div class="container">
+		<h2>Formats</h2>
+	</div>
 	<div class="container">
 		<ul>
 	   	    @foreach($formats as $format)

@@ -12,4 +12,8 @@ class Album extends Model
     	return $this->belongsTo(Format::class);
     }
 
+    public function tracks() {
+    	return $this->hasMany(Track::class);
+    }
+
 }

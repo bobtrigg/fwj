@@ -7,6 +7,10 @@ use App\Season;
 
 class SeasonController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index() {
         $seasons = Season::all();
     	return view('seasons.index', compact('seasons'));

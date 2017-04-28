@@ -11,19 +11,32 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TrackController@index')->name('home');
 
 Route::get('/formats', 'FormatController@index');
 Route::post('/formats', 'FormatController@store');
 Route::get('/formats/create', 'FormatController@create');
+
 Route::get('/artists', 'ArtistController@index');
 Route::post('/artists', 'ArtistController@store');
 Route::get('/artists/create', 'ArtistController@create');
+
 Route::get('/seasons', 'SeasonController@index');
 Route::post('/seasons', 'SeasonController@store');
 Route::get('/seasons/create', 'SeasonController@create');
+
 Route::get('/albums', 'AlbumController@index');
 Route::post('/albums', 'AlbumController@store');
 Route::get('/albums/create', 'AlbumController@create');
+
+Route::get('/tracks', 'TrackController@index');
+Route::post('/tracks', 'TrackController@store');
+Route::get('/tracks/create', 'TrackController@create');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+Route::get('/login', 'SessionsController@create')->name('login');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
+
+

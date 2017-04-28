@@ -4,7 +4,7 @@
 
 	<div class="col-sm-8">
 		
-		<h1>Add a season</h1>
+		<h2>Add a season</h2>
 
 		<hr>
 

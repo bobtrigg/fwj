@@ -4,7 +4,7 @@
 
 	<div class="col-sm-8">
 		
-		<h1>Add a format</h1>
+		<h2>Add a format</h2>
 
 		<hr>
 

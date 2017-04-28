@@ -4,7 +4,7 @@
 
 	<div class="col-sm-8">
 		
-		<h1>Add an album</h1>
+		<h2>Add an album</h2>
 
 		<hr>
 

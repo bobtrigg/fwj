@@ -7,6 +7,10 @@ use App\Format;
 
 class FormatController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index() {
         $formats = Format::all();
     	return view('formats.index', compact('formats'));

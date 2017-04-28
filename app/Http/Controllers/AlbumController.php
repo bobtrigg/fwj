@@ -9,6 +9,10 @@ use App\Format;
 
 class AlbumController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index() {
         $albums = Album::all();
     	return view('albums.index', compact('albums'));

@@ -7,6 +7,10 @@ use App\Artist;
 
 class ArtistController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index() {
         $artists = Artist::all();
     	return view('artists.index', compact('artists'));
