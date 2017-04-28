@@ -9,6 +9,10 @@ use App\Album;
 
 class TrackController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index() {
         $tracks = Track::all();
     	return view('tracks.index', compact('tracks'));

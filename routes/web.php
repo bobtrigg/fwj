@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'TrackController@index');
+Route::get('/', function() {
+	return view('welcome');
+});
+// Route::get('/', 'TrackController@index');
 
 Route::get('/formats', 'FormatController@index');
 Route::post('/formats', 'FormatController@store');
@@ -28,3 +31,7 @@ Route::get('/albums/create', 'AlbumController@create');
 Route::get('/tracks', 'TrackController@index');
 Route::post('/tracks', 'TrackController@store');
 Route::get('/tracks/create', 'TrackController@create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
