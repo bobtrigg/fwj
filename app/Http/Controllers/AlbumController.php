@@ -38,4 +38,16 @@ class AlbumController extends Controller
     	return back();
 
     }
+
+    /**
+     * Delete the specified album.
+     *
+     * @param  Request  $request
+     * @param  string  $albumId
+     * @return Response
+     */
+    public function delete(Request $request, $albumId) {
+        Album::destroy($albumId);
+        return back();
+    }
 }

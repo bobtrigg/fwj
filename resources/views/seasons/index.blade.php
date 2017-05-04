@@ -14,6 +14,12 @@
                     {{ $season->seq_no }}
                     ;&nbsp;Name:&nbsp;
                     {{ $season->name }}
+                    @if (Auth::check())
+                      <span class="crudicons">
+                          <a href="/seasons/delete/{{ $season->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
+                          <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+                      </span>
+                    @endif
                 </li>
             @endforeach
         </ul>

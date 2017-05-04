@@ -5,11 +5,19 @@
         <h2>Artists</h2>
     </div>
 	<div class="container">
-    	<ul>
+    	<ul class="datalist">
     	    @foreach($artists as $artist)
     	        <li>
+
+                    @if (Auth::check())
+                      <a href="/artists/delete/{{ $artist->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;&nbsp;
+                      <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+                      &nbsp;&nbsp;
+                    @endif
+
     	            {{ $artist->name }}
-    	        </li>
+
+                </li>
     	    @endforeach
     	</ul>
     </div>

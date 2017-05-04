@@ -31,4 +31,16 @@ class ArtistController extends Controller
     	return back();
 
     }
+    
+    /**
+     * Delete the specified artist.
+     *
+     * @param  Request  $request
+     * @param  string  $artistId
+     * @return Response
+     */
+    public function delete(Request $request, $artistId) {
+        Artist::destroy($artistId);
+        return back();
+    }
 }

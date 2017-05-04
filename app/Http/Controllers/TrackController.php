@@ -37,4 +37,16 @@ class TrackController extends Controller
     	return back();
 
     }
+
+    /**
+     * Delete the specified track.
+     *
+     * @param  Request  $request
+     * @param  string  $trackId
+     * @return Response
+     */
+    public function delete(Request $request, $trackId) {
+        Track::destroy($trackId);
+        return back();
+    }
 }

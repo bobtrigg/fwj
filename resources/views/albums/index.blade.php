@@ -20,9 +20,16 @@
                     <tr>
                         <td>{{ $album->title }}</td>
                         <td>{{ $album->artist->name }}</td>
-                        <td>{{ $album->format->format }}</td>
+                        <td>{{ $album->format['format'] }}</td>
                         <td>{{ $album->price }}</td>
-                        <td>{{ $album->have }}</td>
+                        <td>{{ $album->have ? 'Yes' : 'No'}}
+                            @if (Auth::check())
+                              <span class="crudicons">
+                                  <a href="/albums/delete/{{ $album->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
+                                  <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                              </span>
+                            @endif
+                        </td>
                     </tr>
         	    @endforeach
             </tbody>

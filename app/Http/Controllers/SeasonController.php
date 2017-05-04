@@ -33,4 +33,17 @@ class SeasonController extends Controller
     	return back();
 
     }
+
+    /**
+     * Delete the specified season.
+     *
+     * @param  Request  $request
+     * @param  string  $seasonId
+     * @return Response
+     */
+    public function delete(Request $request, $seasonId) {
+        Season::destroy($seasonId);
+        return back();
+    }
+
 }

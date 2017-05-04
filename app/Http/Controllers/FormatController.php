@@ -29,6 +29,17 @@ class FormatController extends Controller
     	Format::create(request(['format']));
     	
     	return back();
-
+    }
+    
+    /**
+     * Delete the specified format.
+     *
+     * @param  Request  $request
+     * @param  string  $formatId
+     * @return Response
+     */
+    public function delete(Request $request, $formatId) {
+        Format::destroy($formatId);
+        return back();
     }
 }
