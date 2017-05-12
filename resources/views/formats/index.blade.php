@@ -12,7 +12,7 @@
 
                     @if (Auth::check())
                           <a href="/formats/delete/{{ $format->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;&nbsp;
-                          <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+                          <a href="/formats/{{ $format-> id }}"><span class="glyphicon glyphicon-edit"></span></a>
                           &nbsp;&nbsp;
                     @endif
 

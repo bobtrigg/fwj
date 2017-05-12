@@ -48,7 +48,7 @@ class SeasonController extends Controller
 
     	$season->update(request(['year', 'seq_no', 'name']));
     	
-    	return back();
+    	return redirect()->route('seasons');
 
     }
 
