@@ -10,18 +10,7 @@
 
 		<form method="POST" action="/artists">
 
-			{{ csrf_field() }}
-
-			<div class="form-group">
-				<label for="name">Name</label>
-				<textarea name="name" id="name" class="form-control"></textarea>
-			</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Add artist</button>
-			</div>
-
-			@include('layouts.errors')
+			@include('artists.formfields')
 
 		</form>
 

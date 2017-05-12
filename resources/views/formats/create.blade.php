@@ -10,18 +10,7 @@
 
 		<form method="POST" action="/formats">
 
-			{{ csrf_field() }}
-
-			<div class="form-group">
-				<label for="format">Name</label>
-				<textarea name="format" id="format" class="form-control"></textarea>
-			</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Add format</button>
-			</div>
-
-			@include('layouts.errors')
+			@include('formats.formfields')
 
 		</form>
 
