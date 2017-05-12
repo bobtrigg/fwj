@@ -16,6 +16,10 @@ class SeasonController extends Controller
     	return view('seasons.index', compact('seasons'));
     }
 
+    public function show(Season $season) {
+        return view('seasons.show', compact('season'));
+    }
+
     public function create() {
     	return view('seasons.create');
     }
@@ -28,7 +32,21 @@ class SeasonController extends Controller
             'name' => 'required|max:25',
         ]);
 
-    	Season::create(request(['year', 'seq_no', 'name']));
+        Season::create(request(['year', 'seq_no', 'name']));
+
+        return back();
+
+    }
+
+    public function update(Season $season) {
+
+        $this->validate(request(), [
+            'year' => 'required|min:4|max:4',
+            'seq_no' => 'max:50',
+            'name' => 'required|max:25',
+        ]);
+
+    	$season->update(request(['year', 'seq_no', 'name']));
     	
     	return back();
 

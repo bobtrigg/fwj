@@ -24,8 +24,10 @@ Route::get('/artists/create', 'ArtistController@create');
 Route::get('/artists/delete/{artistId}', 'ArtistController@delete');
 
 Route::get('/seasons', 'SeasonController@index');
-Route::post('/seasons', 'SeasonController@store');
 Route::get('/seasons/create', 'SeasonController@create');
+Route::post('/seasons', 'SeasonController@store');
+Route::get('/seasons/{season}', 'SeasonController@show');
+Route::put('/seasons/{season}', 'SeasonController@update');
 Route::get('/seasons/delete/{seasonId}', 'SeasonController@delete');
 
 Route::get('/albums', 'AlbumController@index');
