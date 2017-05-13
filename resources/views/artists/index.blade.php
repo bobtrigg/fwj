@@ -11,7 +11,7 @@
 
                     @if (Auth::check())
                       <a href="/artists/delete/{{ $artist->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;&nbsp;
-                      <a href=""><span class="glyphicon glyphicon-edit"></span></a>
+                      <a href="/artists/{{ $artist->id }}"><span class="glyphicon glyphicon-edit"></span></a>
                       &nbsp;&nbsp;
                     @endif
 
