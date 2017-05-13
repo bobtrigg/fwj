@@ -30,7 +30,10 @@
 
 			<div class="form-group">
 				<label for="have">Have</label>
-				<input type="text" name="have" id="have" class="form-control" value="{{ ( ! empty($album) ? $album->have : '' ) }}" />
+				<select name="have" id="have" class="form-control">
+					<option value="1" {{ ! empty($album) && $album->have ? 'selected' : '' }}>Yes</option>
+					<option value="0" {{ ( ! empty($album) && ! $album->have ) ? ' selected' : '' }}>No</option>
+				</select>
 			</div>
 
 			<div class="form-group">

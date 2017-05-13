@@ -19,9 +19,15 @@ class AlbumController extends Controller
     }
 
     public function create() {
+        $artists = Artist::all();
+        $formats = Format::all();
+        return view('albums.create', compact('artists', 'formats'));
+    }
+
+    public function show(Album $album) {
     	$artists = Artist::all();
     	$formats = Format::all();
-    	return view('albums.create', compact('artists', 'formats'));
+    	return view('albums.show', compact('album', 'artists', 'formats'));
     }
 
     public function store() {
@@ -33,9 +39,24 @@ class AlbumController extends Controller
             'price' => 'required',
         ]);
 
-    	Album::create(request(['title','artist_id','format_id','price','have']));
+        Album::create(request(['title','artist_id','format_id','price','have']));
+        
+        return back();
+
+    }
+
+    public function update(Album $album) {
+
+        $this->validate(request(), [
+            'title' => 'required|min:2|max:30',
+            'artist_id' => 'required',
+            'format_id' => 'required',
+            'price' => 'required',
+        ]);
+
+    	$album->update(request(['title','artist_id','format_id','price','have']));
     	
-    	return back();
+    	return redirect()->route('albums');
 
     }
 
