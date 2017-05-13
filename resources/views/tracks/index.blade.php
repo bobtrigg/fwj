@@ -23,7 +23,7 @@
                             @if (Auth::check())
                               <span class="crudicons">
                                   <a href="/tracks/delete/{{ $track->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
-                                  <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                                  <a href="/tracks/{{ $track->id }}"><span class="glyphicon glyphicon-edit"></span></a>
                               </span>
                             @endif
                         </td>

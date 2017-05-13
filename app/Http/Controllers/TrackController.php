@@ -19,9 +19,15 @@ class TrackController extends Controller
     }
 
     public function create() {
+        $albums = Album::all();
+        $seasons = Season::all();
+        return view('tracks.create', compact('albums', 'seasons'));
+    }
+
+    public function show(Track $track) {
     	$albums = Album::all();
     	$seasons = Season::all();
-    	return view('tracks.create', compact('albums', 'seasons'));
+    	return view('tracks.show', compact('track', 'albums', 'seasons'));
     }
 
     public function store() {
@@ -32,9 +38,23 @@ class TrackController extends Controller
             'title' => 'required',
         ]);
 
-    	Track::create(request(['album_id','season_id','title']));
+        Track::create(request(['album_id','season_id','title']));
+        
+        return back();
+
+    }
+
+    public function update(Track $track) {
+
+        $this->validate(request(), [
+            'album_id' => 'required',
+            'season_id' => 'required',
+            'title' => 'required',
+        ]);
+
+    	$track->update(request(['album_id','season_id','title']));
     	
-    	return back();
+    	return redirect()->route('tracks');
 
     }
 
