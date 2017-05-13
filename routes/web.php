@@ -13,45 +13,63 @@
 
 Route::get('/', 'TrackController@index')->name('home');
 
-Route::get('/formats', 'FormatController@index')->name('formats');
-Route::get('/formats/create', 'FormatController@create');
-Route::post('/formats', 'FormatController@store');
-Route::get('/formats/{format}', 'FormatController@show');
-Route::put('/formats/{format}', 'FormatController@update');
-Route::get('/formats/delete/{formatId}', 'FormatController@delete');
+Route::group(['prefix' => 'formats'], function() {
 
-Route::get('/artists', 'ArtistController@index')->name('artists');
-Route::get('/artists/create', 'ArtistController@create');
-Route::post('/artists', 'ArtistController@store');
-Route::get('/artists/{artist}', 'ArtistController@show');
-Route::put('/artists/{artist}', 'ArtistController@update');
-Route::get('/artists/delete/{artistId}', 'ArtistController@delete');
+	Route::get('', 'FormatController@index')->name('formats');
+	Route::post('', 'FormatController@store');
 
-Route::get('/seasons', 'SeasonController@index')->name('seasons');
-Route::get('/seasons/create', 'SeasonController@create');
-Route::post('/seasons', 'SeasonController@store');
-Route::get('/seasons/{season}', 'SeasonController@show');
-Route::put('/seasons/{season}', 'SeasonController@update');
-Route::get('/seasons/delete/{seasonId}', 'SeasonController@delete');
+	Route::get('create', 'FormatController@create');
+	Route::get('{format}', 'FormatController@show');
+	Route::put('{format}', 'FormatController@update');
+	Route::get('delete/{formatId}', 'FormatController@delete');
+});
 
-Route::get('/albums', 'AlbumController@index')->name('albums');
-Route::get('/albums/create', 'AlbumController@create');
-Route::post('/albums', 'AlbumController@store');
-Route::get('/albums/{album}', 'AlbumController@show');
-Route::put('/albums/{album}', 'AlbumController@update');
-Route::get('/albums/delete/{albumId}', 'AlbumController@delete');
+Route::group(['prefix' => 'artists'], function() {
 
-Route::get('/tracks', 'TrackController@index')->name('tracks');
-Route::get('/tracks/create', 'TrackController@create');
-Route::post('/tracks', 'TrackController@store');
-Route::get('/tracks/{track}', 'TrackController@show');
-Route::put('/tracks/{track}', 'TrackController@update');
-Route::get('/tracks/delete/{trackId}', 'TrackController@delete')->name('deleteTrack');
+	Route::get('', 'ArtistController@index')->name('artists');
+	Route::post('', 'ArtistController@store');
 
-Route::get('/register', 'RegistrationController@create');
-Route::post('/register', 'RegistrationController@store');
-Route::get('/login', 'SessionsController@create')->name('login');
-Route::post('/login', 'SessionsController@store');
-Route::get('/logout', 'SessionsController@destroy');
+	Route::get('create', 'ArtistController@create');
+	Route::get('{artist}', 'ArtistController@show');
+	Route::put('{artist}', 'ArtistController@update');
+	Route::get('delete/{artistId}', 'ArtistController@delete');
+});
 
+Route::group(['prefix' => 'seasons'], function() {
 
+	Route::get('', 'SeasonController@index')->name('seasons');
+	Route::post('', 'SeasonController@store');
+
+	Route::get('create', 'SeasonController@create');
+	Route::get('{season}', 'SeasonController@show');
+	Route::put('{season}', 'SeasonController@update');
+	Route::get('delete/{seasonId}', 'SeasonController@delete');
+});
+
+Route::group(['prefix' => 'albums'], function() {
+
+	Route::get('', 'AlbumController@index')->name('albums');
+	Route::post('', 'AlbumController@store');
+
+	Route::get('create', 'AlbumController@create');
+	Route::get('{album}', 'AlbumController@show');
+	Route::put('{album}', 'AlbumController@update');
+	Route::get('delete/{albumId}', 'AlbumController@delete');
+});
+
+Route::group(['prefix' => 'tracks'], function() {
+
+	Route::get('', 'TrackController@index')->name('tracks');
+	Route::post('', 'TrackController@store');
+	
+	Route::get('create', 'TrackController@create');
+	Route::get('{track}', 'TrackController@show');
+	Route::put('{track}', 'TrackController@update');
+	Route::get('delete/{trackId}', 'TrackController@delete')->name('deleteTrack');
+});
+
+Route::get('register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store');
+Route::get('logout', 'SessionsController@destroy');
