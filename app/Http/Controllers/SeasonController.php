@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Season;
+use App\Repositories\Seasons;
+
 
 class SeasonController extends Controller
 {
@@ -16,8 +18,10 @@ class SeasonController extends Controller
     	return view('seasons.index', compact('seasons'));
     }
 
-    public function show(Season $season) {
-        return view('seasons.show', compact('season'));
+    public function show(Season $season, Seasons $seasons) {
+        $priceTotal = $seasons->getPriceTotal($season, Seasons::ALL);
+        $outstandingPriceTotal = $seasons->getPriceTotal($season, Seasons::NEED);
+        return view('seasons.show', compact('season', 'priceTotal', 'outstandingPriceTotal'));
     }
 
     public function create() {
