@@ -23,7 +23,7 @@ class Seasons
             $priceTotal += ($mode == self::ALL) ? \App\Album::find($albumId)['price'] : \App\Album::where('have', false)->find($albumId)['price'];
         }
 
-        return $priceTotal;
+        return sprintf('%.2f', $priceTotal);
     }
 
 }

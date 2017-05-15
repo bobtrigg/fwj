@@ -13,9 +13,9 @@ class SeasonController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index() {
+    public function index(Seasons $seasonRepo) {
         $seasons = Season::all();
-    	return view('seasons.index', compact('seasons'));
+    	return view('seasons.index', compact('seasons', 'seasonRepo'));
     }
 
     public function show(Season $season, Seasons $seasons) {
