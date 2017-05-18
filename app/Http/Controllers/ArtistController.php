@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artist;
+use App\Album;
 
 class ArtistController extends Controller
 {
@@ -17,7 +18,8 @@ class ArtistController extends Controller
     }
 
     public function show(Artist $artist) {
-        return view('artists.show', compact('artist'));
+        $albums = Album::where('artist_id', $artist->id)->get();
+        return view('artists.show', compact('artist', 'albums'));
     }
 
     public function create() {
@@ -36,6 +38,10 @@ class ArtistController extends Controller
 
     }
     
+    public function edit(Artist $artist) {
+        return view('artists.edit', compact('artist'));
+    }
+
     public function update(Artist $artist) {
         
         $this->validate(request(), [

@@ -31,6 +31,7 @@ Route::group(['prefix' => 'artists'], function() {
 
 	Route::get('create', 'ArtistController@create');
 	Route::get('{artist}', 'ArtistController@show');
+	Route::get('update/{artist}', 'ArtistController@edit');
 	Route::put('{artist}', 'ArtistController@update');
 	Route::get('delete/{artistId}', 'ArtistController@delete');
 });

@@ -10,12 +10,15 @@
     	        <li>
 
                     @if (Auth::check())
-                      <a href="/artists/delete/{{ $artist->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;&nbsp;
-                      <a href="/artists/{{ $artist->id }}"><span class="glyphicon glyphicon-edit"></span></a>
-                      &nbsp;&nbsp;
+                      <a href="/artists/delete/{{ $artist->id }}">
+                          <span class="glyphicon glyphicon-remove crud-glyph"></span>
+                      </a>
+                      <a href="/artists/update/{{ $artist->id }}">
+                          <span class="glyphicon glyphicon-edit crud-glyph"></span>
+                      </a>
                     @endif
 
-    	            {{ $artist->name }}
+                    <a href="/artists/{{ $artist->id }}">{{ $artist->name }}</a>
 
                 </li>
     	    @endforeach
