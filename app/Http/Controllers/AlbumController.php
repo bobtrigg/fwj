@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Album;
 use App\Artist;
+use App\Track;
 use App\Format;
 
 class AlbumController extends Controller
@@ -18,16 +19,15 @@ class AlbumController extends Controller
     	return view('albums.index', compact('albums'));
     }
 
+    public function show(Album $album) {
+        $tracks = Track::where('album_id', $album->id)->get();
+        return view('albums.show', compact('album', 'tracks'));
+    }
+
     public function create() {
         $artists = Artist::all();
         $formats = Format::all();
         return view('albums.create', compact('artists', 'formats'));
-    }
-
-    public function show(Album $album) {
-    	$artists = Artist::all();
-    	$formats = Format::all();
-    	return view('albums.show', compact('album', 'artists', 'formats'));
     }
 
     public function store() {
@@ -43,6 +43,12 @@ class AlbumController extends Controller
         
         return back();
 
+    }
+
+    public function edit(Album $album) {
+        $artists = Artist::all();
+        $formats = Format::all();
+        return view('albums.edit', compact('album', 'artists', 'formats'));
     }
 
     public function update(Album $album) {

@@ -18,7 +18,7 @@
             <tbody>
         	    @foreach($albums as $album)
                     <tr>
-                        <td>{{ $album->title }}</td>
+                        <td><a href="/albums/{{ $album->id }}">{{ $album->title }}</a></td>
                         <td>{{ $album->artist->name }}</td>
                         <td>{{ $album->format['format'] }}</td>
                         <td>{{ $album->price }}</td>
@@ -26,7 +26,7 @@
                             @if (Auth::check())
                               <span class="crudicons">
                                   <a href="/albums/delete/{{ $album->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
-                                  <a href="/albums/{{ $album->id }}"><span class="glyphicon glyphicon-edit"></span></a>
+                                  <a href="/albums/update/{{ $album->id }}"><span class="glyphicon glyphicon-edit"></span></a>
                               </span>
                             @endif
                         </td>

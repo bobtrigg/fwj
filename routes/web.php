@@ -54,6 +54,7 @@ Route::group(['prefix' => 'albums'], function() {
 
 	Route::get('create', 'AlbumController@create');
 	Route::get('{album}', 'AlbumController@show');
+	Route::get('update/{album}', 'AlbumController@edit');
 	Route::put('{album}', 'AlbumController@update');
 	Route::get('delete/{albumId}', 'AlbumController@delete');
 });

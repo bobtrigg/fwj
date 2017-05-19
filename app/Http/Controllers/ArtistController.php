@@ -14,10 +14,11 @@ class ArtistController extends Controller
 
     public function index() {
         $artists = Artist::all();
-    	return view('artists.index', compact('artists'));
+        return view('artists.index', compact('artists'));
     }
 
     public function show(Artist $artist) {
+        $artists = Artist::all();
         $albums = Album::where('artist_id', $artist->id)->get();
         return view('artists.show', compact('artist', 'albums'));
     }

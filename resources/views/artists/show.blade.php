@@ -4,27 +4,23 @@
 
 	<div class="col-sm-8">
 		
-		<h2>View/update an artist</h2>
+		<h2 class="h3"><u>Artist details</u></h2>
 
-		<hr>
 
-		<p class="h3"><span class="fieldname">Artist Name:</span><span class="fieldval">{{ $artist->name }}</span></p>
+		<p class="h4"><span class="fieldname">Artist Name:</span><span class="fieldval">{{ $artist->name }}</span></p>
 
-		<h3>Albums and tracks by {{ $artist->name }}</h3>
+		<h3 class="h4">Albums and tracks by {{ $artist->name }}</h3>
 
-		<ul>
+		<ul class="h5">
 			@foreach ($albums as $album)
 		
-				<li class="h4">{{ $album->title }} ( ${{ $album->price }} )</li>
+				<li>{{ $album->title }} ( ${{ $album->price }} )</li>
 
 				<ul>
 
-					@php 
-						$tracks = \App\Track::where("album_id", $album->id)->get();
-						foreach ($tracks as $track) {
-							echo '<li>' . $track->title . '</li>';
-						}
-					@endphp
+					@foreach (\App\Track::where("album_id", $album->id)->pluck('title') as $track)
+						<li>{{ $track }}</li>
+					@endforeach
 
 				</ul>
 	

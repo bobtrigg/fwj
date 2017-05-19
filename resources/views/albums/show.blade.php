@@ -4,17 +4,22 @@
 
 	<div class="col-sm-8">
 		
-		<h2>View/update an album</h2>
+		<h2 class="h3"><u>Album details</u></h2>
 
-		<hr>
+		<p class="h4">
+			<span class="fieldname">Title: </span><span class="fieldval">{{ $album->title }}</span><br>
+			<span class="fieldname">Artist: </span><span class="fieldval">{{ $album->artist->name }}</span><br>
+			<span class="fieldname">Price: </span><span class="fieldval">${{ $album->price }}</span><br>
+			<span class="fieldname">Have: </span><span class="fieldval">{{ $album->have ? 'Yes' : 'No' }}</span>
+		</p>
 
-		<form method="POST" action="/albums/{{ $album->id }}">
+		<p class="h4 fieldname">Tracks</p>
+		<ul>
+			@foreach($tracks as $track)
+				<li>{{ $track->title }}</li>
+			@endforeach
+		</ul>
 
-			{{ method_field('PUT') }}
-
-			@include('albums.formfields')
-
-		</form>
 
 		<a href="/albums"><button class="btn">Back to album list</button></a>
 
