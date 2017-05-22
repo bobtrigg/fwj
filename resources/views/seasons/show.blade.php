@@ -4,22 +4,28 @@
 
 	<div class="col-sm-8">
 		
-		<h2>View/update a season</h2>
+		<h2 class="h3">Season details</h2>
 
-		<!-- <hr> -->
 
-		<form method="POST" action="/seasons/{{ $season->id }} ">
+		<p class="h4">
+			<span class="fieldname">Year: </span><span class="fieldval">{{ $season->year }}</span><br>
+			<span class="fieldname">Sequence #: </span><span class="fieldval">{{ $season->seq_no }}</span><br>
+			<span class="fieldname">Name: </span><span class="fieldval">${{ $season->name }}</span><br>
+			<span class="fieldname">Outstanding cost: </span><span class="fieldval">{{ $outstandingPriceTotal }}</span><br>
+			<span class="fieldname">Total cost: </span><span class="fieldval">{{ $priceTotal }}</span>
+		</p>
 
-			{{ method_field('PUT') }}
+		<p class="h4">Albums and tracks for season</h3>
 
-			<p class="h4">Total cost for season: {{ $priceTotal }}</p>
-			<p class="h4">Total oustanding cost for season: {{ $outstandingPriceTotal }}</p>
+		<ul class="h5">
+				<ul>
+					@foreach (
+					$season->tracks as $track)
+						<li>{{ $track->title }} from {{ $track->album->title }}</li>
+					@endforeach
 
-			<hr>
-
-			@include('seasons.formfields')
-
-		</form>
+				</ul>
+		</ul>
 
 		<a href="/seasons"><button class="btn">Back to season list</button></a>
 

@@ -42,6 +42,12 @@ class SeasonController extends Controller
 
     }
 
+    public function edit(Season $season, Seasons $seasons) {
+        $priceTotal = $seasons->getPriceTotal($season, Seasons::ALL);
+        $outstandingPriceTotal = $seasons->getPriceTotal($season, Seasons::NEED);
+        return view('seasons.show', compact('season', 'priceTotal', 'outstandingPriceTotal'));
+    }
+
     public function update(Season $season) {
 
         $this->validate(request(), [

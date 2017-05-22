@@ -13,7 +13,7 @@
                       <a href="/artists/delete/{{ $artist->id }}">
                           <span class="glyphicon glyphicon-remove crud-glyph"></span>
                       </a>
-                      <a href="/artists/update/{{ $artist->id }}">
+                      <a href="/artists/edit/{{ $artist->id }}">
                           <span class="glyphicon glyphicon-edit crud-glyph"></span>
                       </a>
                     @endif

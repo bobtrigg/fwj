@@ -31,7 +31,7 @@ Route::group(['prefix' => 'artists'], function() {
 
 	Route::get('create', 'ArtistController@create');
 	Route::get('{artist}', 'ArtistController@show');
-	Route::get('update/{artist}', 'ArtistController@edit');
+	Route::get('edit/{artist}', 'ArtistController@edit');
 	Route::put('{artist}', 'ArtistController@update');
 	Route::get('delete/{artistId}', 'ArtistController@delete');
 });
@@ -43,6 +43,7 @@ Route::group(['prefix' => 'seasons'], function() {
 
 	Route::get('create', 'SeasonController@create');
 	Route::get('{season}', 'SeasonController@show');
+	Route::get('edit/{season}', 'SeasonController@edit');
 	Route::put('{season}', 'SeasonController@update');
 	Route::get('delete/{seasonId}', 'SeasonController@delete');
 });
@@ -54,7 +55,7 @@ Route::group(['prefix' => 'albums'], function() {
 
 	Route::get('create', 'AlbumController@create');
 	Route::get('{album}', 'AlbumController@show');
-	Route::get('update/{album}', 'AlbumController@edit');
+	Route::get('edit/{album}', 'AlbumController@edit');
 	Route::put('{album}', 'AlbumController@update');
 	Route::get('delete/{albumId}', 'AlbumController@delete');
 });
