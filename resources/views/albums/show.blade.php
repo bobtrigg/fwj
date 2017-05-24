@@ -13,7 +13,7 @@
 			<span class="fieldname">Have: </span><span class="fieldval">{{ $album->have ? 'Yes' : 'No' }}</span>
 		</p>
 
-		<p class="h4 fieldname">Tracks</p>
+		<h3 class="h4 fieldname">Tracks</h3>
 		<ul>
 			@foreach($tracks as $track)
 				<li>{{ $track->title }}</li>

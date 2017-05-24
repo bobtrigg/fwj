@@ -8,9 +8,9 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>Name</th>
                     <th>Year</th>
                     <th>Sequence #</th>
-                    <th>Name</th>
                     <th>Cost outstanding</th>
                     <th>Cost total</th>
                 </tr>
@@ -18,16 +18,16 @@
             <tbody>
                 @foreach($seasons as $season)
                     <tr>
+                        <td><a href="/seasons/{{ $season->id }}">{{ $season->name }}</a></td>
                         <td>{{ $season->year }}</td>
                         <td>{{ $season->seq_no }}</td>
-                        <td>{{ $season->name }}</td>
                         <td><?php echo $seasonRepo->getPriceTotal($season, \App\Repositories\Seasons::ALL); ?></td>
                         <td><?php echo $seasonRepo->getPriceTotal($season, \App\Repositories\Seasons::NEED); ?>
 
                             @if (Auth::check())
                                 <span class="crudicons">
                                     <a href="/seasons/delete/{{ $season->id }}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
-                                    <a href="/seasons/{{ $season->id }}"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="/seasons/edit/{{ $season->id }}"><span class="glyphicon glyphicon-edit"></span></a>
                                 </span>
                             @endif
 

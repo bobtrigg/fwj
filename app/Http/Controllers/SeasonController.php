@@ -19,9 +19,10 @@ class SeasonController extends Controller
     }
 
     public function show(Season $season, Seasons $seasons) {
+        $albumsAndTracks = $seasons->getAlbumsAndTracks($season);
         $priceTotal = $seasons->getPriceTotal($season, Seasons::ALL);
         $outstandingPriceTotal = $seasons->getPriceTotal($season, Seasons::NEED);
-        return view('seasons.show', compact('season', 'priceTotal', 'outstandingPriceTotal'));
+        return view('seasons.show', compact('season', 'albumsAndTracks', 'priceTotal', 'outstandingPriceTotal'));
     }
 
     public function create() {
@@ -43,9 +44,10 @@ class SeasonController extends Controller
     }
 
     public function edit(Season $season, Seasons $seasons) {
+
         $priceTotal = $seasons->getPriceTotal($season, Seasons::ALL);
         $outstandingPriceTotal = $seasons->getPriceTotal($season, Seasons::NEED);
-        return view('seasons.show', compact('season', 'priceTotal', 'outstandingPriceTotal'));
+        return view('seasons.edit', compact('season', 'priceTotal', 'outstandingPriceTotal'));
     }
 
     public function update(Season $season) {

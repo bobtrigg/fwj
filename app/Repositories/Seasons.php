@@ -26,4 +26,26 @@ class Seasons
         return sprintf('%.2f', $priceTotal);
     }
 
+    public function getAlbumsAndTracks(Season $season) {
+        
+        $albumsAndTracks = [];
+        $tracks = $season->tracks;
+
+        foreach ($tracks as $track) {
+
+            $album = $track->album;
+
+            if ( ! array_key_exists($album->title, $albumsAndTracks)) {
+                $albumsAndTracks[$album->title] = [];
+                $albumsAndTracks[$album->title]['price'] = $album->price;
+                $albumsAndTracks[$album->title]['have'] = $album->have ? true : false;
+            }
+                
+            $albumsAndTracks[$album->title]['tracks'][] = $track->title;
+        }
+
+        return $albumsAndTracks;
+
+    }
+
 }
