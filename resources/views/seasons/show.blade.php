@@ -17,7 +17,7 @@
 
 		<p class="h4">Albums and tracks for season</p>
 
-		<ul class="h5">
+		<ul>
 
 			@foreach ($albumsAndTracks as $album => $data)
 				<li>
